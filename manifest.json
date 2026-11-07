@@ -1,0 +1,52 @@
+{
+  "project": "زبدة المعرفة",
+  "batch": 1,
+  "books_in_batch": 5,
+  "audio_status": "نصوص جاهزة للتسجيل أو التحويل إلى صوت؛ لم تُرفق ملفات MP3 فعلية",
+  "features_per_book": [
+    "ملخص تحليلي",
+    "خريطة أفكار",
+    "تطبيقات عملية",
+    "أسئلة نقاش",
+    "مساحة ملاحظات شخصية",
+    "مساهمات العائلة",
+    "نص صوتي"
+  ],
+  "books": [
+    {
+      "number": 1,
+      "slug": "thinking-fast-and-slow",
+      "title": "التفكير، السريع والبطيء",
+      "author": "دانيال كانيمان",
+      "category": "التفكير والذكاء واتخاذ القرار"
+    },
+    {
+      "number": 2,
+      "slug": "the-psychology-of-money",
+      "title": "سيكولوجية المال",
+      "author": "مورغان هاوسل",
+      "category": "المال والاستثمار"
+    },
+    {
+      "number": 3,
+      "slug": "deep-work",
+      "title": "العمل العميق",
+      "author": "كال نيوبورت",
+      "category": "تطوير الذات والانضباط"
+    },
+    {
+      "number": 4,
+      "slug": "the-design-of-everyday-things",
+      "title": "تصميم الأشياء اليومية",
+      "author": "دونالد نورمان",
+      "category": "الإبداع والفن والابتكار"
+    },
+    {
+      "number": 5,
+      "slug": "mans-search-for-meaning",
+      "title": "الإنسان يبحث عن المعنى",
+      "author": "فيكتور فرانكل",
+      "category": "الفلسفة ومعنى الحياة"
+    }
+  ]
+}
