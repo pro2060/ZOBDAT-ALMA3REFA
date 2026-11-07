@@ -2,80 +2,40 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#101114">
-<meta name="description" content="زبدة المعرفة — مكتبتك الشخصية للأفكار والكتب والتطبيق العملي">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="styles.css">
-<title>زبدة المعرفة</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f4ee">
+<meta name="description" content="زبدة المعرفة — مكتبة شخصية تجمع خلاصات الكتب والأفكار القابلة للتطبيق.">
+<title>زبدة المعرفة | مكتبتك الواعية</title>
+<link rel="stylesheet" href="new-version/style.css">
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="#" aria-label="زبدة المعرفة">
-    <span class="brand-mark">ز</span><span><b>زبدة المعرفة</b><small>المعرفة التي تبقى</small></span>
-  </a>
-  <button id="installBtn" class="install hidden">تثبيت التطبيق</button>
+<header class="site-header">
+  <a class="brand" href="#" aria-label="زبدة المعرفة"><span class="brand-icon">ز</span><span>زبدة المعرفة<small>اقرأ بوعي، وطبّق ببساطة</small></span></a>
+  <nav><a href="#library">المكتبة</a><a href="#method">كيف تعمل</a><a href="#about">عن المكتبة</a></nav>
+  <a class="header-cta" href="#library">ابدأ القراءة <span>←</span></a>
 </header>
 <main>
   <section class="hero">
-    <div class="hero-copy">
-      <span class="eyebrow">مكتبتك. أفكارك. قراراتك.</span>
-      <h1>لا تجمع الكتب فقط،<br><em>اجمع ما يغيّر تفكيرك.</em></h1>
-      <p>مساحة شخصية لاستخلاص الأفكار المهمة، ومناقشتها، وتحويلها إلى خطوات في حياتك وعملك.</p>
-      <button class="primary" data-go="library">ابدأ من مكتبتك <span>←</span></button>
+    <div class="hero-copy"><div class="eyebrow"><i></i> مكتبة شخصية للأفكار التي تبقى</div>
+      <h1>من صفحات الكتاب<br>إلى <em>خطوة تغيّر يومك.</em></h1>
+      <p>خلاصات مركّزة، أفكار تستحق الحفظ، ومساحة صغيرة لتحويل المعرفة إلى فعل.</p>
+      <div class="hero-actions"><a class="button primary" href="#library">استكشف المكتبة <span>←</span></a><a class="quiet-link" href="#method">اكتشف الفكرة <span>↓</span></a></div>
+      <div class="hero-note"><span class="avatars">ز · ف · ك</span><span>للقراءة الهادئة والتعلّم المستمر</span></div>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-      <div class="book-shape"><span>زبدة<br>المعرفة</span><i></i></div>
-      <div class="spark s1">✦</div><div class="spark s2">✧</div><div class="spark s3">·</div>
-    </div>
+    <div class="hero-visual" aria-label="رسم توضيحي لكتب"><div class="sun"></div><div class="floating-note">فكرة واحدة<br><b>قد تغيّر الكثير</b></div><div class="book book-back"><span>مساحة للتأمل</span></div><div class="book book-front"><small>زبدة المعرفة</small><b>أفكار<br>تستحق<br>أن تبقى</b><i></i></div><div class="plant">✳</div><div class="visual-caption">مكتبة تنمو معك <span>✦</span></div></div>
   </section>
-
-  <section class="stats">
-    <div><strong id="booksCount">٢</strong><span>كتاب في المكتبة</span></div>
-    <div><strong id="savedCount">٠</strong><span>فكرة محفوظة</span></div>
-    <div><strong id="notesCount">٠</strong><span>ملاحظة شخصية</span></div>
-  </section>
-
-  <nav class="tabs" aria-label="التنقل الرئيسي">
-    <button class="tab active" data-tab="library">المكتبة</button>
-    <button class="tab" data-tab="saved">أفكاري المحفوظة</button>
-    <button class="tab" data-tab="notes">دفتر التطبيق</button>
-  </nav>
-
-  <section id="library" class="panel active">
-    <div class="section-head"><div><span class="eyebrow">رحلتك المعرفية</span><h2>مكتبتك الحالية</h2></div><span class="muted">01 / البداية</span></div>
+  <section class="quick-stats"><div><b>اقرأ</b><span>خلاصة واضحة</span></div><div><b>تأمّل</b><span>فكرة عميقة</span></div><div><b>طبّق</b><span>خطوة صغيرة</span></div><span class="stat-mark">✳</span></section>
+  <section id="library" class="library section">
+    <div class="section-heading"><div><div class="eyebrow">رفّك الأول</div><h2>ابدأ بكتابٍ يلامس حياتك</h2></div><p>اختر ما يناسب لحظتك — معرفة عملية أو قراءة خفيفة.</p></div>
     <div class="book-grid">
-      <article class="book-card featured">
-        <div class="cover cover-money"><span class="cover-kicker">الكتاب الأول</span><b>سيكولوجية<br>المال</b><small>مورجان هاوسل</small><span class="cover-seal">MONEY<br>PSYCHOLOGY</span></div>
-        <div class="book-info"><span class="tag">مال وسلوك</span><h3>سيكولوجية المال</h3><p>كيف تؤثر تصرفاتنا وقناعاتنا في قراراتنا المالية؟</p><div class="progress"><i style="width:100%"></i></div><small class="muted">جلسة المناقشة الأساسية مكتملة</small><button class="text-btn" data-book="money">افتح ملف الكتاب ←</button></div>
-      </article>
-      <article class="book-card">
-        <div class="cover cover-zagh"><span class="cover-kicker">استراحة معرفية</span><b>زغـازيـغ</b><small>أحمد خالد توفيق</small><span class="cover-seal">LIGHT<br>READING</span></div>
-        <div class="book-info"><span class="tag tag-gold">خفيف وساخر</span><h3>زغازيغ</h3><p>قراءة خفيفة بضحكة وسخرية ذكية.</p><div class="progress"><i style="width:12%"></i></div><small class="muted">بدأت جلسة الاستراحة</small><button class="text-btn" data-book="zagh">افتح ملف الكتاب ←</button></div>
-      </article>
+      <article class="book-card"><div class="book-cover cover-money"><span class="cover-label">مال وسلوك</span><div class="cover-art">◎</div><b>سيكولوجية<br>المال</b><small>مورجان هاوسل</small><span class="cover-num">01</span></div><div class="book-text"><span class="pill">كتاب عملي</span><h3>سيكولوجية المال</h3><p>رحلة لفهم علاقتنا بالمال، ولماذا تتشكل قراراتنا من تجاربنا أكثر من الأرقام.</p><div class="book-meta"><span>✦ 5 أفكار رئيسية</span><span>قراءة 8 دقائق</span></div><button class="read-button" data-book="money">افتح خلاصة الكتاب <span>←</span></button></div></article>
+      <article class="book-card"><div class="book-cover cover-zagh"><span class="cover-label">استراحة أدبية</span><div class="cover-art">☼</div><b>زغـازيـغ</b><small>أحمد خالد توفيق</small><span class="cover-num">02</span></div><div class="book-text"><span class="pill green">قراءة خفيفة</span><h3>زغازيغ</h3><p>ملاحظات ساخرة وذكية تلتقط مفارقات الحياة اليومية وتمنح القراءة نكهة مختلفة.</p><div class="book-meta"><span>✦ 3 أفكار مختارة</span><span>قراءة 5 دقائق</span></div><button class="read-button" data-book="zagh">افتح خلاصة الكتاب <span>←</span></button></div></article>
     </div>
   </section>
-
-  <section id="saved" class="panel">
-    <div class="section-head"><div><span class="eyebrow">ما يستحق أن يبقى</span><h2>أفكاري المحفوظة</h2></div></div>
-    <div id="savedList" class="empty-state">لم تحفظ أفكاراً بعد. افتح أي كتاب واحفظ الفكرة التي تستحق الرجوع إليها.</div>
-  </section>
-
-  <section id="notes" class="panel">
-    <div class="section-head"><div><span class="eyebrow">من الفكرة إلى الفعل</span><h2>دفتر التطبيق الشخصي</h2></div></div>
-    <p class="muted">اكتب كيف ستستخدم فكرة قرأتها في حياتك أو عملك.</p>
-    <textarea id="noteInput" placeholder="الفكرة التي أريد تطبيقها... وما الخطوة العملية التالية؟"></textarea>
-    <button id="saveNote" class="primary">حفظ الملاحظة</button>
-    <div id="notesList" class="note-list"></div>
-  </section>
-
-  <section id="bookDetail" class="book-detail hidden">
-    <button id="backBtn" class="back">→ العودة إلى المكتبة</button>
-    <div id="detailContent"></div>
-  </section>
+  <section id="method" class="method section"><div class="method-title"><div class="eyebrow">طريقة بسيطة</div><h2>المعرفة تصبح أثمن<br>حين تجد طريقها إلى يومك.</h2></div><div class="steps"><article><span>١</span><div><h3>اقرأ الخلاصة</h3><p>خذ الفكرة الأساسية دون أن تتوه في التفاصيل.</p></div></article><article><span>٢</span><div><h3>احتفظ بما يهمك</h3><p>اجمع الأفكار التي تريد العودة إليها لاحقاً.</p></div></article><article><span>٣</span><div><h3>جرّب خطوة صغيرة</h3><p>اكتب تطبيقاً عملياً يناسب حياتك الآن.</p></div></article></div></section>
+  <section id="bookDetail" class="detail section hidden"><button id="backBtn" class="back">→ العودة إلى المكتبة</button><div id="detailContent"></div></section>
+  <section id="about" class="closing"><div><span>“</span><h2>لا تحتاج إلى قراءة كل شيء.<br>تحتاج أن تتوقف عند ما يعنيك.</h2><p>زبدة المعرفة مساحة هادئة للتعلّم، والتفكير، والتطبيق.</p></div><a href="#library">اختر كتابك الأول ←</a></section>
 </main>
-<footer><span>زبدة المعرفة</span><span>اقرأ أقلّ بعشوائية. فكّر أكثر بوعي.</span></footer>
-<script src="app.js"></script>
-</body>
-</html>
+<footer><a class="brand" href="#"><span class="brand-icon">ز</span><span>زبدة المعرفة<small>المعرفة التي تبقى</small></span></a><span>اقرأ أقلّ بعشوائية. فكّر أكثر بوعي.</span><a href="#">إلى الأعلى ↑</a></footer>
+<script src="new-version/app.js"></script>
+</body></html>
