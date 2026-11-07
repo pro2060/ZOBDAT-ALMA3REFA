@@ -12,3 +12,24 @@
 .book-detail-card{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:center;background:var(--white);border:1px solid var(--line);padding:24px}.book-detail-card .book-cover{height:250px}.book-detail-card h2{font-size:27px}.book-detail-card p{font-size:12px;color:var(--muted)}.coming-soon{border:1px dashed #c7c8b7;padding:15px;color:var(--muted);font-size:11px}.coming-soon strong{color:var(--gold)}
 @media(max-width:800px){.catalog-intro{margin-bottom:55px;padding:14px}.category-filters{grid-template-columns:repeat(3,1fr);gap:8px}.category-chip{min-height:95px;font-size:10px}.book-card{grid-template-columns:140px 1fr;gap:14px;padding:11px}}
 @media(max-width:430px){.catalog-intro p{font-size:9px}.category-filters{grid-template-columns:repeat(2,1fr)}.category-chip{min-height:88px}.book-card{grid-template-columns:115px 1fr;gap:11px}.search-box{width:100%;margin-top:12px}.book-detail-card{grid-template-columns:110px 1fr;gap:15px;padding:13px}.book-detail-card .book-cover{height:175px}.book-detail-card h2{font-size:20px}.catalog-count{margin-right:5px}}
+
+/* Covers and editorial summary panels for the 50-book collection */
+.cover-artwork{isolation:isolate;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;padding:36px 13px 30px;background:linear-gradient(145deg,hsl(var(--hue) 34% 54%),hsl(calc(var(--hue) + 22) 32% 29%) 72%,#233b35);color:#fff8e9;box-shadow:inset 0 0 0 7px #fff2,inset 0 0 0 9px #233b3525;cursor:pointer}
+.cover-artwork:before{content:"";position:absolute;inset:15px;border:1px solid #fff5;z-index:-1}
+.cover-orbit{position:absolute;width:112px;height:112px;border:1px solid #fff3;border-radius:50%;top:23%;left:50%;transform:translateX(-50%);z-index:-1}
+.cover-orbit:after{content:"";position:absolute;inset:13px;border:1px solid #fff2;border-radius:50%}
+.cover-mark{position:absolute;top:27%;font:54px Georgia,serif;line-height:1;opacity:.42}
+.cover-label{position:absolute;top:25px;left:10px;right:10px;font-size:8px;letter-spacing:.2px;opacity:.86}
+.cover-artwork b{position:relative;max-width:100%;font-size:clamp(15px,1.55vw,22px);line-height:1.55;text-wrap:balance;text-shadow:0 2px 10px #17231c55}
+.cover-artwork small{position:relative;font-size:9px;opacity:.88}
+.cover-num{position:absolute;bottom:20px;left:18px;font:11px Georgia,serif;opacity:.72}
+.book-card .cover-artwork{height:240px}
+.book-detail-card .cover-artwork{height:250px;cursor:default}
+.summary-panel{margin-top:20px;padding:18px 20px;background:#f6f4ec;border-right:3px solid var(--gold)}
+.summary-panel h3{font-size:13px;margin:14px 0 4px;color:var(--forest)}
+.summary-panel p,.summary-panel li{font-size:11px;line-height:1.9;color:var(--muted)}
+.summary-panel ul{padding-right:19px;margin:4px 0}
+.summary-panel>small{display:block;margin-top:12px;color:#89877d;font-size:9px}
+.detail-book-meta .author-line{color:var(--forest);font-weight:700}
+@media(max-width:800px){.book-card .cover-artwork{height:210px}.book-detail-card .cover-artwork{height:200px}.cover-mark{font-size:45px}}
+@media(max-width:430px){.book-card .cover-artwork{height:185px;padding:31px 8px 26px}.cover-artwork:before{inset:11px}.cover-orbit{width:85px;height:85px}.cover-label{top:19px;font-size:7px}.cover-artwork b{font-size:15px}.cover-artwork small{font-size:8px}.cover-mark{font-size:36px}.cover-num{bottom:14px;left:14px;font-size:9px}.summary-panel{padding:13px}}
