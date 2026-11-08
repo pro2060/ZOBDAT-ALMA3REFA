@@ -68,4 +68,4 @@
 
 .summary-audio{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px 0 22px;padding:12px 15px;background:#f3f1e9;border:1px solid #e4dfd2;border-radius:8px}.summary-audio>span{font-size:12px;color:var(--forest);font-weight:700;white-space:nowrap}.summary-audio audio{width:min(100%,360px);height:38px;accent-color:var(--forest)}@media(max-width:600px){.summary-audio{align-items:flex-start;flex-direction:column;gap:9px}.summary-audio audio{width:100%}}
 
-.summary-audio button{border:1px solid var(--forest);background:#fff;color:var(--forest);border-radius:6px;padding:8px 13px;font:inherit;font-size:12px;cursor:pointer}.summary-audio button:hover{background:var(--forest);color:#fff}.summary-audio .audio-status{font-size:11px;color:#777;flex-basis:100%}.summary-audio audio{display:none}
+.summary-audio button{border:1px solid var(--forest);background:#fff;color:var(--forest);border-radius:6px;padding:8px 13px;font:inherit;font-size:12px;cursor:pointer}.summary-audio button:hover{background:var(--forest);color:#fff}.summary-audio .audio-status{font-size:11px;color:#777;flex-basis:100%}
