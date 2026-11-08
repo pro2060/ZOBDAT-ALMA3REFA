@@ -47,3 +47,21 @@
 .reflection-entry p{margin:0;color:var(--ink);font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}
 .reflection-entry small{display:block;margin-top:5px;color:var(--muted);font-size:9px}
 .reflection-status{min-height:20px;color:var(--moss);font-size:11px}
+
+/* Long-form book summary reading layout */
+.summary-panel{margin-top:22px;padding:22px;background:#f6f4ec;border-right:3px solid var(--gold)}
+.summary-panel h3{font-size:15px;margin:24px 0 9px;color:var(--forest)}
+.summary-panel>h3:first-of-type{margin-top:12px}
+.summary-panel>p{font-size:13px;line-height:2.15;color:#555f56;margin:0 0 13px}
+.summary-idea{padding:13px 15px;margin:10px 0;background:var(--white);border:1px solid var(--line)}
+.summary-idea h4{font-size:13px;margin:0 0 8px;color:var(--forest);display:flex;align-items:flex-start;gap:10px}
+.summary-idea h4 span{font:11px Georgia,serif;color:#a47d49;border:1px solid #d9c8a9;border-radius:50%;width:25px;height:25px;flex:none;display:grid;place-items:center}
+.summary-idea p{font-size:12px;line-height:2.05;color:#555f56;margin:5px 0}
+.summary-idea .idea-example{padding:8px 11px;background:#f6f4ec;border-radius:3px}
+.idea-example b{color:var(--forest)}
+.summary-panel ol{padding-right:22px;margin:5px 0 16px}
+.summary-panel ol li{font-size:12px;line-height:2.05;color:#555f56;padding:2px 0 5px 5px}
+.summary-panel>small{display:block;margin-top:18px;color:#89877d;font-size:10px;line-height:1.8}
+.summary-source{display:inline-block;margin-top:10px;color:var(--forest);font-size:11px;text-decoration:none;border-bottom:1px solid var(--gold)}
+.summary-source:hover{color:#956f3e}
+@media(max-width:600px){.summary-panel{padding:15px;margin-top:16px}.summary-panel h3{font-size:14px;margin-top:20px}.summary-panel>p,.summary-idea p{font-size:12px}.summary-idea{padding:11px}.summary-panel ol li{font-size:11px}}
