@@ -33,3 +33,17 @@
 .detail-book-meta .author-line{color:var(--forest);font-weight:700}
 @media(max-width:800px){.book-card .cover-artwork{height:210px}.book-detail-card .cover-artwork{height:200px}.cover-mark{font-size:45px}}
 @media(max-width:430px){.book-card .cover-artwork{height:185px;padding:31px 8px 26px}.cover-artwork:before{inset:11px}.cover-orbit{width:85px;height:85px}.cover-label{top:19px;font-size:7px}.cover-artwork b{font-size:15px}.cover-artwork small{font-size:8px}.cover-mark{font-size:36px}.cover-num{bottom:14px;left:14px;font-size:9px}.summary-panel{padding:13px}}
+
+/* Personal reflection, discussion and family contribution space */
+.reflection-space{margin:22px 0 35px;padding:22px;background:var(--white);border:1px solid var(--line);border-top:3px solid var(--gold)}
+.reflection-heading h3{font-size:17px;margin:7px 0 2px;color:var(--forest)}
+.reflection-heading p,.reflection-empty{font-size:11px;color:var(--muted)}
+.reflection-space label{display:block;margin:15px 0 7px;font-size:12px;font-weight:700;color:var(--forest)}
+.reflection-space textarea{display:block;width:100%;margin-top:7px;padding:12px;border:1px solid var(--line);border-radius:3px;background:#fbfaf6;color:var(--ink);font:12px/1.8 'Cairo',Tahoma,sans-serif;resize:vertical;outline-color:var(--gold)}
+.reflection-space button{margin-top:9px;padding:8px 17px;border:0;background:var(--forest);color:#fff8e9;font:700 11px 'Cairo',Tahoma,sans-serif;cursor:pointer}
+.reflection-divider{height:1px;background:var(--line);margin:22px 0}
+.reflection-list{display:grid;gap:9px;margin-top:12px}
+.reflection-entry{padding:12px 14px;background:#f6f4ec;border-right:2px solid var(--moss)}
+.reflection-entry p{margin:0;color:var(--ink);font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+.reflection-entry small{display:block;margin-top:5px;color:var(--muted);font-size:9px}
+.reflection-status{min-height:20px;color:var(--moss);font-size:11px}
