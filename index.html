@@ -1,18 +1,147 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f7f4ee"><meta name="description" content="تصفّح الكتب حسب التصنيف. مكتبة تضم 50 كتابًا، مع خلاصات موسعة ومساحات للتعلّم والتطبيق.">
-<title>زبدة المعرفة | مكتبة الكتب</title><link rel="stylesheet" href="new-version/style.css?v=11">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>زبدة المعرفة</title>
+<meta name="description" content="ملخصات صوتية ومكتوبة لخمسين كتابًا مهمًا.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Cairo',system-ui,sans-serif;background:#F2F6FB;color:#14213D;line-height:1.6}
+a{color:#14213D;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #2F5F99;outline-offset:2px}
+.sr{position:absolute;left:-9999px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 5vw;background:#fff;border-bottom:1px solid #DCE5EF}
+.logo{font-size:26px;font-weight:800;color:#2F5F99}
+.nav{display:flex;gap:26px;font-size:17px;font-weight:600}
+.nav a[aria-current]{color:#2F5F99;border-bottom:3px solid #2F5F99}
+main{max-width:1100px;margin:0 auto;padding:32px 20px 80px;outline:0}
+.hero h1{margin:0 0 8px;font-size:clamp(30px,5vw,44px);font-weight:800;line-height:1.3}
+.hero p{margin:0 0 16px;font-size:19px;color:#4A5B73}
+input[type=search]{width:100%;max-width:560px;padding:14px 18px;font:inherit;font-size:17px;border:1px solid #B9C7D9;border-radius:12px;background:#fff}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.chip{padding:9px 18px;border-radius:999px;color:#fff;font-weight:600;font-size:16px}
+.chip.on{outline:3px solid #14213D;outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #DCE5EF;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.card:hover{border-color:#2F5F99;box-shadow:0 4px 14px rgba(20,33,61,.08)}
+.card h3{margin:0;font-size:20px;font-weight:800}
+.au{margin:0;font-size:15px;color:#4A5B73}
+.tag{font-size:13px;font-weight:600;color:#fff;border-radius:8px;padding:2px 10px;align-self:flex-start}
+.meta{display:flex;align-items:center;gap:8px;color:#2F5F99;font-weight:600;font-size:15px;margin-top:4px}
+.tri{width:0;height:0;border-left:11px solid #2F5F99;border-top:7px solid transparent;border-bottom:7px solid transparent;display:inline-block}
+.empty{font-size:18px;color:#4A5B73}
+.crumb{display:flex;align-items:center;flex-wrap:wrap;gap:12px;font-size:16px;color:#4A5B73;margin-bottom:20px}
+.back,.sp{font:inherit;font-size:15px;color:#14213D;background:#fff;border:1px solid #B9C7D9;border-radius:10px;padding:8px 16px;cursor:pointer}
+.bh h1{margin:0;font-size:clamp(30px,5vw,42px);font-weight:800;line-height:1.3}
+.bh p{margin:4px 0 12px;font-size:18px;color:#4A5B73}
+.sp[aria-pressed=true]{background:#14213D;color:#fff;border-color:#14213D}
+.player{background:#14213D;color:#fff;border-radius:16px;padding:18px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:20px 0}
+.pbtn{width:56px;height:56px;border-radius:50%;border:0;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.pbtn i{width:0;height:0;border-left:16px solid #14213D;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.pbtn.playing i{width:6px;height:18px;border:0;border-left:5px solid #14213D;border-right:5px solid #14213D;box-sizing:content-box}
+.pm{flex:1;min-width:200px}
+.pm input{width:100%;accent-color:#6FD3C4}
+.tm{display:flex;justify-content:space-between;font-size:15px}
+.spd{display:flex;gap:8px}
+.spd .sp{background:transparent;color:#fff;border-color:#8A9BB8}
+.spd .sp[aria-pressed=true]{background:#6FD3C4;border-color:#6FD3C4;color:#14213D}
+.soon{background:#fff;border:1px dashed #B9C7D9;border-radius:16px;padding:16px 22px;margin:20px 0;color:#4A5B73;font-size:17px}
+.sec{background:#fff;border:1px solid #DCE5EF;border-radius:16px;padding:22px 26px;margin-bottom:18px}
+.sec h2,.gist h2{margin:0 0 8px;font-size:24px;font-weight:800}
+.sec p,.gist p{margin:0 0 12px;font-size:19px;line-height:1.9;color:#26354D}
+.sec p:last-child{margin:0}
+.sec.note p{font-size:16px;color:#4A5B73}
+.gist{background:#14213D;border-radius:16px;padding:22px 26px;margin-bottom:18px;color:#fff}
+.gist h2{color:#6FD3C4}.gist p{color:#fff;margin:0}
+.pn{display:flex;justify-content:space-between;gap:16px;font-weight:600;margin-top:24px}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.cc{color:#fff;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:6px}
+.cc a,.cc{color:#fff}.cc h3{margin:0;font-size:24px;font-weight:800}.cc span{font-size:16px}
+.bnav{display:none}
+@media(max-width:700px){.nav{display:none}.top{padding:14px 20px}
+.bnav{display:flex;justify-content:space-around;position:fixed;bottom:0;right:0;left:0;background:#fff;border-top:1px solid #DCE5EF;padding:12px 0;font-weight:600;z-index:5}
+.bnav a[aria-current]{color:#2F5F99}main{padding-bottom:100px}}
+</style>
 </head>
 <body>
-<header id="top" class="site-header"><a class="brand" href="#top" aria-label="زبدة المعرفة"><span class="brand-icon">ز</span><span>زبدة المعرفة<small>مكتبة كتب مرتبة حسب اهتماماتك</small></span></a><nav><a href="#categories">التصنيفات</a><a href="#library">الكتب</a><a href="#about">عن المكتبة</a></nav><a class="header-cta" href="#categories">تصفّح الكتب <span>←</span></a></header>
-<main>
-<section class="hero catalog-hero"><div class="hero-copy"><div class="eyebrow"><i></i> مكتبتك تبدأ من اهتمامك</div><h1>اختر تصنيفك،<br><em>واكتشف كتابك القادم.</em></h1><p>تصفّح الكتب حسب الموضوع، تعرّف على أغلفتها وبياناتها، واحفظ ما تريد قراءته.</p><div class="hero-actions"><a class="button primary" href="#categories">اختر تصنيفًا <span>←</span></a><span class="quiet-link">50 كتابًا · 10 ملخصات موسعة متاحة</span></div></div><div class="hero-visual" aria-label="كتب مصنّفة"><div class="sun"></div><div class="floating-note">مكتبة مرتّبة<br><b>على ذوقك واهتمامك</b></div><div class="book book-back"><span>اكتشف فكرة جديدة</span></div><div class="book book-front"><small>زبدة المعرفة</small><b>كل كتاب<br>في مكانه<br>المناسب</b><i></i></div><div class="plant">✳</div><div class="visual-caption">ابدأ من التصنيف <span>✦</span></div></div></section>
-<section class="catalog-intro"><span class="intro-mark">✳</span><div><b>رفوف واضحة، واختيار أسهل</b><p>ابدأ بالتصنيف الأقرب إليك، ثم تصفّح عناوين الكتب وأغلفتها.</p></div><span class="catalog-count"><strong id="booksCount">50</strong><small>كتاب متاح الآن</small></span></section>
-<section id="categories" class="categories section"><div class="section-heading"><div><div class="eyebrow">تصفّح حسب اهتمامك</div><h2>ما المجال الذي تبحث عنه؟</h2></div><p>اختر تصنيفًا لعرض الكتب المرتبطة به.</p></div><div id="categoryFilters" class="category-filters"></div></section>
-<section id="catalogSection" class="library section"><div class="section-heading library-heading"><div><div class="eyebrow">عناوين مختارة</div><h2>الكتب على الرف</h2></div><label class="search-box"><span>⌕</span><input id="searchBooks" type="search" placeholder="ابحث عن كتاب أو مؤلف" aria-label="ابحث عن كتاب أو مؤلف"></label></div><div id="bookGrid" class="book-grid"></div></section>
-<section id="method" class="method section"><div class="method-title"><div class="eyebrow">على مراحل</div><h2>نرتّب المكتبة أولًا،<br>ثم نضيف محتوى الكتب.</h2></div><div class="steps"><article><span>١</span><div><h3>تصفّح التصنيفات</h3><p>اختر المجال الذي يهمك الآن.</p></div></article><article><span>٢</span><div><h3>تعرّف على الكتب</h3><p>اطّلع على الغلاف والعنوان والمؤلف.</p></div></article><article><span>٣</span><div><h3>المحتوى لاحقًا</h3><p>تضاف الملخصات والتسجيلات الصوتية تدريجيًا.</p></div></article></div></section>
-<section id="bookDetail" class="detail section hidden"><button id="backBtn" class="back">→ العودة إلى الكتب</button><div id="detailContent"></div></section>
-<section id="about" class="closing"><div><span>“</span><h2>كل رحلة قراءة تبدأ<br>باختيار الكتاب المناسب.</h2><p>نبني المكتبة خطوة بخطوة — التصنيفات والكتب أولًا، والمحتوى لاحقًا.</p></div><a href="#categories">استكشف التصنيفات ←</a></section>
-</main><footer><a class="brand" href="#"><span class="brand-icon">ز</span><span>زبدة المعرفة<small>المعرفة التي تبقى</small></span></a><span>نضيف الملخصات والتسجيلات الصوتية تدريجيًا.</span><a href="#">إلى الأعلى ↑</a></footer><script src="new-version/app.js?v=13"></script></body></html>
+<header class="top"><a class="logo" href="#/">زبدة المعرفة</a>
+<nav class="nav" aria-label="التنقل الرئيسي"><a href="#/" data-r="home">الرئيسية</a><a href="#/cats" data-r="cats">التصنيفات</a><a href="#/saved" data-r="saved">المحفوظات</a></nav></header>
+<main id="app" tabindex="-1"></main>
+<nav class="bnav" aria-label="التنقل السفلي"><a href="#/" data-r="home">الرئيسية</a><a href="#/cats" data-r="cats">التصنيفات</a><a href="#/saved" data-r="saved">المحفوظات</a></nav>
+<script src="data.js"></script>
+<script>
+(function(){
+var C=[null,{n:'التفكير واتخاذ القرار',s:'التفكير',c:'#2F5F99'},{n:'المال والأعمال',s:'المال',c:'#14766A'},{n:'تطوير الذات والإنتاجية',s:'تطوير الذات',c:'#6A4FB3'},{n:'الأدب والقراءة',s:'الأدب',c:'#B3366A'},{n:'التاريخ والفلسفة والتصميم',s:'التاريخ والفلسفة',c:'#3F7A2E'}];
+var H={idea:'#2F5F99',main:'#14766A',crit:'#B3366A',tip:'#6A4FB3',why:'#3F7A2E',note:'#4A5B73'};
+var B=window.BOOKS,app=document.getElementById('app'),KEY='zobda-saved',KS='zobda-speed';
+function esc(s){return String(s).replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
+function ar(s){return String(s).replace(/\d/g,function(d){return'٠١٢٣٤٥٦٧٨٩'[d]})}
+function mins(s){return ar(Math.max(1,Math.round(s/60)))+' د'}
+function fmt(s){s=Math.floor(s||0);var r=s%60;return ar(Math.floor(s/60)+':'+(r<10?'0':'')+r)}
+function get(k,d){try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}}
+function put(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function card(b){var c=C[b.cat];return'<a class="card" href="#/b/'+b.id+'"><span class="tag" style="background:'+c.c+'">'+c.s+'</span><h3>'+esc(b.title)+'</h3><p class="au">'+esc(b.author)+'</p><span class="meta">'+(b.audio?'<i class="tri"></i>استمع'+(b.dur?' · '+mins(b.dur):''):(b.sec?'اقرأ الملخص':'قريبًا'))+'</span></a>'}
+function home(cat,savedOnly){
+ var saved=get(KEY,[]);
+ var list=B.filter(function(b){return(!cat||b.cat===cat)&&(!savedOnly||saved.indexOf(b.id)>-1)});
+ var chips='<a class="chip'+(!cat&&!savedOnly?' on':'')+'" style="background:#14213D" href="#/">الكل '+ar(B.length)+'</a>';
+ for(var i=1;i<6;i++)chips+='<a class="chip'+(cat===i?' on':'')+'" style="background:'+C[i].c+'" href="#/c/'+i+'"'+(cat===i?' aria-current="true"':'')+'>'+C[i].n+'</a>';
+ app.innerHTML='<section class="hero"><h1>'+(savedOnly?'المحفوظات':cat?C[cat].n:'خلاصة '+ar(B.length)+' كتابًا في دقائق')+'</h1><p>'+(savedOnly?'الكتب التي حفظتها للرجوع إليها.':'اقرأ الملخص أو اسمعه، وقرّر أي كتاب يستحق وقتك.')+'</p><label class="sr" for="q">بحث</label><input id="q" type="search" placeholder="ابحث عن كتاب أو مؤلف"></section><div class="chips" role="group" aria-label="التصنيفات">'+chips+'</div><div class="grid" id="g"></div><p class="empty" id="em" hidden></p>';
+ var g=document.getElementById('g'),em=document.getElementById('em');
+ function fill(q){var l=list.filter(function(b){return!q||(b.title+' '+b.author).toLowerCase().indexOf(q)>-1});g.innerHTML=l.map(card).join('');em.hidden=l.length>0;em.textContent=savedOnly&&!q?'لم تحفظ أي كتاب بعد. افتح كتابًا واضغط «حفظ».':'لا توجد نتائج.'}
+ fill('');document.getElementById('q').addEventListener('input',function(e){fill(e.target.value.trim().toLowerCase())});
+}
+function cats(){
+ app.innerHTML='<section class="hero"><h1>التصنيفات</h1><p>اختر مجالًا لتبدأ منه.</p></section><div class="cg" style="margin-top:20px">'+C.slice(1).map(function(c,i){var n=B.filter(function(b){return b.cat===i+1}).length;return'<a class="cc" style="background:'+c.c+'" href="#/c/'+(i+1)+'"><h3>'+c.n+'</h3><span>'+ar(n)+' كتب</span></a>'}).join('')+'</div>';
+}
+function book(id){
+ var b=B.filter(function(x){return x.id===id})[0];if(!b)return home(0);
+ var c=C[b.cat],same=B.filter(function(x){return x.cat===b.cat}),ix=same.indexOf(b),pv=same[ix-1],nx=same[ix+1],sv=get(KEY,[]).indexOf(b.id)>-1;
+ var h='<nav class="crumb" aria-label="مسار التنقل"><button class="back" id="bk">رجوع →</button><a href="#/">الرئيسية</a><span aria-hidden="true">/</span><a href="#/c/'+b.cat+'" style="color:'+c.c+';font-weight:700">'+c.n+'</a></nav><header class="bh"><h1>'+esc(b.title)+'</h1><p>'+esc(b.author)+' · '+c.n+'</p><button class="sp" id="sv" aria-pressed="'+sv+'">'+(sv?'محفوظ':'حفظ')+'</button></header>';
+ if(b.audio){h+='<section class="player" aria-label="مشغّل الصوت"><audio id="au" src="'+b.audio+'" preload="metadata"></audio><button class="pbtn" id="pp" aria-label="تشغيل"><i></i></button><div class="pm"><input id="sk" type="range" min="0" max="100" step="0.1" value="0" aria-label="موضع التشغيل"><div class="tm"><span id="t1">'+fmt(0)+'</span><span id="t2">'+fmt(b.dur||0)+'</span></div></div><div class="spd" role="group" aria-label="سرعة التشغيل">'+[0.8,1,1.25].map(function(r){return'<button class="sp" data-r="'+r+'" aria-pressed="false">'+ar(r)+'×</button>'}).join('')+'</div></section>'}
+ else h+='<p class="soon">الصوت قريبًا لهذا الكتاب.</p>';
+ if(b.sec){b.sec.forEach(function(s){
+  if(s.k==='gist')h+='<section class="gist"><h2>الزبدة</h2><p>'+esc(s.t)+'</p></section>';
+  else h+='<section class="sec'+(s.k==='note'?' note':'')+'"><h2 style="color:'+H[s.k]+'">'+s.h+'</h2>'+(s.k==='main'?s.t.map(function(p){return'<p>'+esc(p)+'</p>'}).join(''):'<p>'+esc(s.t)+'</p>')+'</section>'})}
+ else h+='<p class="soon">الملخص المكتوب قريبًا لهذا الكتاب.</p>';
+ h+='<nav class="pn" aria-label="الكتب في نفس التصنيف">'+(pv?'<a href="#/b/'+pv.id+'">→ '+esc(pv.title)+'</a>':'<span></span>')+(nx?'<a href="#/b/'+nx.id+'">'+esc(nx.title)+' ←</a>':'<span></span>')+'</nav>';
+ app.innerHTML=h;
+ document.title=b.title+' — زبدة المعرفة';
+ document.getElementById('bk').onclick=function(){history.length>1?history.back():location.hash='#/'};
+ document.getElementById('sv').onclick=function(){var a=get(KEY,[]),i=a.indexOf(b.id);i>-1?a.splice(i,1):a.push(b.id);put(KEY,a);this.setAttribute('aria-pressed',i<0);this.textContent=i<0?'محفوظ':'حفظ'};
+ if(b.audio)player(b);
+}
+function player(b){
+ var au=document.getElementById('au'),pp=document.getElementById('pp'),sk=document.getElementById('sk'),t1=document.getElementById('t1'),t2=document.getElementById('t2');
+ pp.onclick=function(){au.paused?au.play().catch(function(){}):au.pause()};
+ au.onplay=function(){pp.classList.add('playing');pp.setAttribute('aria-label','إيقاف مؤقت')};
+ au.onpause=function(){pp.classList.remove('playing');pp.setAttribute('aria-label','تشغيل')};
+ au.onended=function(){au.currentTime=0;sk.value=0;t1.textContent=fmt(0)};
+ au.onloadedmetadata=function(){t2.textContent=fmt(au.duration)};
+ au.onerror=function(){t2.textContent='تعذر تحميل الصوت'};
+ au.ontimeupdate=function(){if(au.duration)sk.value=au.currentTime/au.duration*100;t1.textContent=fmt(au.currentTime)};
+ sk.oninput=function(){if(au.duration)au.currentTime=sk.value/100*au.duration};
+ var sp=get(KS,1),bs=document.querySelectorAll('.spd .sp');
+ function setSpeed(r){au.playbackRate=r;put(KS,r);bs.forEach(function(x){x.setAttribute('aria-pressed',Number(x.dataset.r)===r)})}
+ bs.forEach(function(x){x.onclick=function(){setSpeed(Number(x.dataset.r))}});setSpeed(sp);
+}
+function route(){
+ var p=location.hash.replace(/^#\/?/,'').split('/');document.title='زبدة المعرفة';
+ var k='home';
+ if(p[0]==='b'&&p[1]){k='';book(decodeURIComponent(p[1]))}
+ else if(p[0]==='c'){home(+p[1]||0)}
+ else if(p[0]==='cats'){k='cats';cats()}
+ else if(p[0]==='saved'){k='saved';home(0,true)}
+ else home(0);
+ if(p[0]==='c')k='';
+ document.querySelectorAll('[data-r]').forEach(function(a){if(a.dataset.r===k&&k)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+ window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',route);route();
+})();
+</script>
+</body>
+</html>

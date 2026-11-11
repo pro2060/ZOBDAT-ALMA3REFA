@@ -1,1 +1,11 @@
-const CACHE='zobda-v14';const FILES=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./new-version/style.css?v=11','./new-version/app.js?v=13','./icon-192.png','./icon-512.png','./new-version/thinking-fast-and-slow.mp3'];self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>caches.match('./')))));
+// يمسح كاش النسخة القديمة من الموقع ويلغي نفسه، علشان الزوار يشوفوا النسخة الجديدة
+self.addEventListener('install', function(){ self.skipWaiting(); });
+self.addEventListener('activate', function(e){
+  e.waitUntil((async function(){
+    var keys = await caches.keys();
+    await Promise.all(keys.map(function(k){ return caches.delete(k); }));
+    await self.registration.unregister();
+    var cs = await self.clients.matchAll({type:'window'});
+    cs.forEach(function(c){ c.navigate(c.url); });
+  })());
+});
